@@ -1,0 +1,25 @@
+<head>
+  <title>patientApp</title>
+</head>
+
+<body>
+  <div class="container">
+    {{> main}}
+  </div>
+</body>
+
+<template name="main">
+  {{#if metamask}}
+    {{#if currentUser}}
+      {{#if userRegistered}}
+        {{>navbar}}
+      {{else}}
+        {{>register}}
+      {{/if}}
+    {{else}}
+      {{>logon}}
+    {{/if}}
+  {{else}}
+    Sorry, this application requires google chrome with <a href="https://metamask.io/">metamask</a>
+  {{/if}}
+</template>
