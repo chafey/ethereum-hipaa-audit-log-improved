@@ -1,18 +1,19 @@
 FlowRouter.route('/patients', {
   name: 'patients',
   action(params, queryParams) {
-    //console.log("Looking at a list?");
+    BlazeLayout.render('main', {main: 'patients'});
   }
 });
-FlowRouter.route('/registration', {
-  name: 'registration',
+FlowRouter.route('/', {
+  name: 'home',
   action(params, queryParams) {
-    //console.log("Looking at a list?");
+    BlazeLayout.render('main', {main: 'patients'});
   }
 });
+
 FlowRouter.route('/reports', {
   name: 'reports',
   action(params, queryParams) {
-    //console.log("Looking at a list?");
+    BlazeLayout.render('main', {main: 'reports'});
   }
 });

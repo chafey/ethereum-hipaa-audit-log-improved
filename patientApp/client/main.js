@@ -17,4 +17,5 @@ Template.main.helpers({
 
 Tracker.autorun(function () {
     Meteor.subscribe("userData");
+    Meteor.subscribe('patients');
 });

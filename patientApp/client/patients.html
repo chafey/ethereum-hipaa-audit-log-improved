@@ -1,0 +1,18 @@
+<template name="patients">
+{{#ensureLoggedInAndRegistered}}
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>MRN</th>
+        <th>DOB</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each patients}}
+      {{>patient}}
+    {{/each}}
+    </tbody>
+  </table>
+{{/ensureLoggedInAndRegistered}}
+</template>
