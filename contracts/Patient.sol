@@ -4,7 +4,7 @@ contract Patient {
 
 	address public owner;
 
-	event PatientAccessed(address indexed _from);
+	event PatientAccessed(address indexed from);
 
 	function Patient() {
 		owner = msg.sender;
