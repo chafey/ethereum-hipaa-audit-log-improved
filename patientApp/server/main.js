@@ -11,7 +11,8 @@ Meteor.publish("userData", function () {
           'userRegistered': 1,
           'permission' : 1,
           'firstName' : 1,
-          'lastName' : 1
+          'lastName' : 1,
+          'services.ethereum.address' : 1
         }
       });
 });
@@ -24,6 +25,16 @@ Meteor.publish('patients', function() {
 
 Meteor.startup(() => {
   harvestTransactions.start();
+
+  /*var filter = web3.eth.filter({
+    address: '0x5061f6f976924e91ae067732055d45cd6849e1bb',
+    fromBlock: 0
+  });
+  filter.get(function(err,result) {
+    console.log('get', result);
+  });
+  */
+
 
 /*
 

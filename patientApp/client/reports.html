@@ -1,5 +1,44 @@
 <template name='reports'>
   {{#ensureLoggedInAndRegistered}}
-    Reports here
+  <form class="form-inline">
+    <div class="form-group">
+      <label for="selectPatient">Patient</label>
+      <select id="selectPatient" class="form-control">
+        <option value=''>All</option>
+        {{#each patient in patients}}
+          <option value={{patient.contractAddress}}>{{patient.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="selectUser">User</label>
+      <select id="selectUser" class="form-control">
+        <option value=''>All</option>
+        {{#each user in users}}
+          <option value={{user.services.ethereum.address}}>{{user.lastName}}, {{user.firstName}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <button type="submit" class="btn btn-default">Search</button>
+  </form>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>User</th>
+        <th>Patient</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#each auditEvent in auditEvents}}
+    <tr>
+      <th>{{auditEvent.date}}</th>
+      <th>{{auditEvent.user}}</th>
+      <th>{{auditEvent.patient}}</th>
+    </tr>
+    {{/each}}
+    </tbody>
+  </table>
+
   {{/ensureLoggedInAndRegistered}}
 </template>
