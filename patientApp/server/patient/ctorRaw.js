@@ -6,6 +6,9 @@ import web3 from '../web3.js';
 import abiAndByteCode from './abiAndByteCode.js'
 //import getNonce from '../getNonce.js';
 
+var nonce = web3.eth.getTransactionCount(keyPair.address, 'pending');
+
+
 // Example of how to invoke methods with sendRawTransaction
 // https://github.com/ether-camp/wallet/blob/master/app/public/src/contracts/wallet.js
 // https://forum.ethereum.org/discussion/5039/how-to-use-web3-js-to-sign-a-contract-call
@@ -24,13 +27,11 @@ export default function() {
 
   var txData = contractData + ctorParamsAsBytes;
 
-  var nonce = web3.eth.getTransactionCount(keyPair.address, 'pending')
-
   //console.log('nonce=', nonce);
 
   var tx = new etx({
     to: null,
-    nonce: nonce,
+    nonce: nonce++,
     gasLimit: 4700000,//web3.toHex(4700000),
     gasPrice: 20000000000,//web3.toHex(20000000000),
     data: txData,

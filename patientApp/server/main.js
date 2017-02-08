@@ -93,9 +93,10 @@ Meteor.startup(() => {
   }
   //Patients.remove({});
 
+
   if(Patients.find().count() === 0) {
     var fakeNames = [
-      'Reed Duckworth',/*
+      'Reed Duckworth',
       'Leanna Balogh',
       'Ricardo Lefler',
       'Shakia Earlywine',
@@ -114,7 +115,7 @@ Meteor.startup(() => {
       'Jimmie Funk',
       'Hettie Sjoberg',
       'Lynell Holloway',
-      'Nona Lucius'*/];
+      'Nona Lucius'];
     fakeNames.forEach((fakeName)=> {
       createPatient({
           name: fakeName,
