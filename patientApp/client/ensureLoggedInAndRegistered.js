@@ -7,5 +7,8 @@ Template.ensureLoggedInAndRegistered.helpers({
   },
   userRegistered() {
     return Meteor.user().userRegistered;
+  },
+  initialized() {
+    return Accounts.loginServicesConfigured();
   }
 });

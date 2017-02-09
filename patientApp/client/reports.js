@@ -1,4 +1,4 @@
-AuditEvents = new Mongo.Collection();
+AuditEvents = new Mongo.Collection(null);
 
 Template.reports.helpers({
   users() {
@@ -14,18 +14,14 @@ Template.reports.helpers({
 Template.reports.events({
   'submit'(event, instance) {
     event.preventDefault();
-    console.log(event, instance);
+    //console.log(event, instance);
     var patientAddress = $('#selectPatient').val();
     var userAddress = $('#selectUser').val()
-    console.log(patientAddress, userAddress);
+    //console.log(patientAddress, userAddress);
     AuditEvents.remove({});
-    /*AuditEvents.insert({
-      date: new Date(),
-      user: userAddress,
-      patient: patientAddress
-    });*/
     Meteor.call('getAuditEvents', patientAddress, userAddress, function(err,results) {
       if(results) {
+        results.reverse(); // reverse order of array so newest events are showed first
         results.forEach(function(result) {
           var userAddress =  '0x' + result.topics[1].substr(26);
           //console.log('userAddress', userAddress);
@@ -43,7 +39,5 @@ Template.reports.events({
         });
       }
     });
-
   }
-
 });

@@ -8,6 +8,29 @@ import abiAndByteCode from './abiAndByteCode.js'
 
 var nonce = web3.eth.getTransactionCount(keyPair.address, 'pending');
 
+/*
+Example of calculating the address for a new contract deplopyment
+Tim Coulter @tcoulter 10:54
+var senderAddress = “0xabcd…”;
+
+// The nonce of the transaction that will make this contract == the number of transactions
+// the sender address has made at this point in time. You can get that through:
+var nonce;
+web3.eth.getTransactionCount(senderAddress, function(err, n) {
+  nonce = n;
+})
+
+// Then rlp encode the address and nonce as an array. I forget the exact ethereumjs-util syntax:
+// PS: both senderAddress and nonce may need to be turned into their hex or buffer versions to make ethereumjs happy.
+var encoded = util.rlpEncode([senderAddress, nonce])
+
+// Then you can sha3 the encoded value in web3
+var hash = web3.sha3(encoded);
+
+// Finally, get the first 40 characters, including 2 for the 0x prefix
+var address_of_contract = hash.substring(0, 42);
+*/
+
 
 // Example of how to invoke methods with sendRawTransaction
 // https://github.com/ether-camp/wallet/blob/master/app/public/src/contracts/wallet.js
