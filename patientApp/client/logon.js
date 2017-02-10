@@ -22,7 +22,7 @@ Template.logon.events({
     FlowRouter.go('register');
   },
   'click #requestAccess'(event, instance) {
-    //Meteor.loginWithEthereum();
+    FlowRouter.go('requestAccess');
   },
 
 });
