@@ -1,0 +1,25 @@
+<template name="addPatient">
+  {{#ensureLoggedInAndRegistered}}
+  <div class="jumbotron">
+    <h1>Add Patient</h1>
+    <form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" value="Chris Hafey" name="name" class="form-control" id="name" >
+      </div>
+      <div class="form-group">
+        <label for="mrn">MRN</label>
+        <input type="text" value="1234" name="mrn" class="form-control" id="mrn" >
+      </div>
+      <div class="form-group">
+        <label for="dob">DOB</label>
+        <input type="text" value="Feb 11, 1973" name="dob" class="form-control" id="dob" >
+      </div>
+      <button type="submit" id='save' class="btn btn-default btn btn-primary btn-lg">Save</button>
+      <button type="button" id='cancel' class="btn btn btn-lg">Cancel</button>
+  </form>
+    <p></p>
+  </div>
+  {{/ensureLoggedInAndRegistered}}
+
+</template>

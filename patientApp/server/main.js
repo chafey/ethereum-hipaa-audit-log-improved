@@ -94,6 +94,7 @@ Meteor.startup(() => {
   }
   //Patients.remove({});
 
+/*
   if(Patients.find().count() === 0) {
     var fakeNames = [
       'Reed Duckworth',
@@ -104,7 +105,7 @@ Meteor.startup(() => {
       'Joselyn Flanery',
       'Serina Mehr',
       'Wallace Brodsky',
-      'Machelle Emig',/*
+      'Machelle Emig',
       'Loura Fitzmaurice',
       'Rocco Traina',
       'Frederic Tolliver',
@@ -115,7 +116,7 @@ Meteor.startup(() => {
       'Jimmie Funk',
       'Hettie Sjoberg',
       'Lynell Holloway',
-      'Nona Lucius'*/];
+      'Nona Lucius'];
     fakeNames.forEach((fakeName)=> {
       createPatient({
           name: fakeName,
@@ -124,4 +125,5 @@ Meteor.startup(() => {
       })
     });
   }
+  */
 });

@@ -23,3 +23,9 @@ FlowRouter.route('/register', {
     BlazeLayout.render('main', {main: 'register'});
   }
 });
+FlowRouter.route('/addPatient', {
+  name: 'addPatient',
+  action(params, queryParams) {
+    BlazeLayout.render('main', {main: 'addPatient'});
+  }
+});
