@@ -25,15 +25,15 @@ Template.reports.events({
         results.forEach(function(result) {
           var userAddress =  '0x' + result.topics[1].substr(26);
           //console.log('userAddress', userAddress);
-          var user = Meteor.users.findOne({'services.ethereum.address' :userAddress});
+          //var user = Meteor.users.findOne({'services.ethereum.address' :userAddress});
           //console.log(user);
-          var userName = user ? user.lastName + ', ' + user.firstName : userAddress;
+          //var userName = user ? user.lastName + ', ' + user.firstName : userAddress;
           var patient = Patients.findOne({'contractAddress' : result.address});
           //console.log(patient);
           var patientName = patient ? patient.name : result.address;
           AuditEvents.insert({
             date: new Date(result.timestamp),
-            user: userName,
+            user: result.userName,
             patient: patientName
           });
         });

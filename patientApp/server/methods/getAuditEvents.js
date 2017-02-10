@@ -54,6 +54,9 @@ Meteor.methods({
       var result = filterGet();
       //console.log(result);
       result.forEach(function(tx) {
+        var userAddress =  '0x' + tx.topics[1].substr(26);
+        var user = Meteor.users.findOne({'services.ethereum.address' :userAddress});
+        tx.userName = user ? user.lastName + ', ' + user.firstName : userAddress;
         var block = web3.eth.getBlock(tx.blockNumber);
         tx.timestamp = new Date(block.timestamp*1000);
       })

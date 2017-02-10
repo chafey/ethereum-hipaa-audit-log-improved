@@ -86,11 +86,10 @@ Meteor.startup(() => {
     });
     RegistrationCodes.insert({
       code: 'M8XzRY47RZOx1HI',
-      firstName: 'Chris',
-      lastName: 'Hafey',
+      firstName: 'Bob',
+      lastName: 'Jones',
       permission: 'admin'
     });
-
   }
   //Patients.remove({});
 
