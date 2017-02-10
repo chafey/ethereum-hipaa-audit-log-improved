@@ -1,7 +1,16 @@
 <template name="logon">
   <div class="jumbotron">
     <h1>Welcome to PatientApp</h1>
-    <p>Press the login button below and click 'sign' when metamask prompts you to.</p>
-    <p><a class="btn btn-primary btn-lg" id='login' role="button">Login</a></p>
+    <p>
+    Welcome {{address}}!
+    </p>
+    <p>
+    If you are already registered, press "Ethereum Login".
+    If you have a registration code, press "Register".
+    If you would like to request access, press "Request Access"
+    </p>
+    <p><a class="btn btn-primary btn-lg" id='login' role="button">Ethereum Login</a>
+    <a class="btn btn-primary btn-lg" id='register' role="button">Register</a>
+    <a class="btn btn-primary btn-lg" id='requestAccess' role="button">Request Access</a></p>
   </div>
 </template>

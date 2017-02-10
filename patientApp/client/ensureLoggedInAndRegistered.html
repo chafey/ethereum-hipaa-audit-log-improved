@@ -3,12 +3,8 @@
     {{#if metamask}}
       {{#if initialized}}
         {{#if currentUser}}
-          {{#if userRegistered}}
-            {{>navbar}}
-            {{> Template.contentBlock}}
-          {{else}}
-            {{>register}}
-          {{/if}}
+          {{>navbar}}
+          {{> Template.contentBlock}}
         {{else}}
           {{>logon}}
         {{/if}}

@@ -1,17 +1,21 @@
+import loginWithEthereum from './loginWithEthereum.js';
+
 Template.register.events({
   'submit'(event, instance) {
     event.preventDefault();
     const regCode = event.target.regCode.value;
-    Meteor.call('register', regCode, (error, result)=> {
-      console.log(error, result);
-      if(result) {
-        // navigate to
+    loginWithEthereum(regCode, (error) => {
+      if(error) {
+        console.log(error);
       } else {
-        messagebox(error);
+        FlowRouter.go('home');
       }
     });
+    /*Meteor.call('register', regCode, (error, result)=> {
+    });
+    */
   },
-  'click #logout'() {
-    Meteor.logout();
+  'click #cancel'() {
+    FlowRouter.go('home');
   }
 });

@@ -75,24 +75,24 @@ Meteor.startup(() => {
   });
 */
 
+
   // code to run on server at startup
   if(RegistrationCodes.find().count() === 0) {
     RegistrationCodes.insert({
       code: 'H37o981912MA3vb',
+      firstName: 'Alice',
+      lastName: 'Liddel',
+      permission: 'clinician'
+    });
+    RegistrationCodes.insert({
+      code: 'M8XzRY47RZOx1HI',
       firstName: 'Chris',
       lastName: 'Hafey',
       permission: 'admin'
     });
-    RegistrationCodes.insert({
-      code: 'M8XzRY47RZOx1HI',
-      firstName: 'Jones',
-      lastName: 'Bob',
-      permission: 'clinician'
-    });
 
   }
   //Patients.remove({});
-
 
   if(Patients.find().count() === 0) {
     var fakeNames = [
@@ -104,7 +104,7 @@ Meteor.startup(() => {
       'Joselyn Flanery',
       'Serina Mehr',
       'Wallace Brodsky',
-      'Machelle Emig',
+      'Machelle Emig',/*
       'Loura Fitzmaurice',
       'Rocco Traina',
       'Frederic Tolliver',
@@ -115,7 +115,7 @@ Meteor.startup(() => {
       'Jimmie Funk',
       'Hettie Sjoberg',
       'Lynell Holloway',
-      'Nona Lucius'];
+      'Nona Lucius'*/];
     fakeNames.forEach((fakeName)=> {
       createPatient({
           name: fakeName,

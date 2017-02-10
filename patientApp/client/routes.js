@@ -17,3 +17,9 @@ FlowRouter.route('/reports', {
     BlazeLayout.render('main', {main: 'reports'});
   }
 });
+FlowRouter.route('/register', {
+  name: 'register',
+  action(params, queryParams) {
+    BlazeLayout.render('main', {main: 'register'});
+  }
+});
