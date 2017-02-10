@@ -29,3 +29,12 @@ FlowRouter.route('/addPatient', {
     BlazeLayout.render('main', {main: 'addPatient'});
   }
 });
+FlowRouter.route('/viewReport/:id', {
+  name: 'viewReport',
+  action(params, queryParams) {
+    //console.log(params, queryParams);
+    var item = Patients.findOne({_id: params.id});
+    //console.log(item);
+    BlazeLayout.render('viewReport', item);
+  }
+});

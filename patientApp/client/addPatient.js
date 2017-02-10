@@ -4,7 +4,8 @@ Template.addPatient.events({
     var patient = {
       name: event.target.name.value,
       mrn: event.target.mrn.value,
-      dob: event.target.dob.value
+      dob: event.target.dob.value,
+      report: event.target.report.value
     }
     console.log(patient);
     Meteor.call('addPatient', patient, function(err,res) {
