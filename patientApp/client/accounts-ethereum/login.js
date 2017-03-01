@@ -2,7 +2,7 @@
 
 function doLogon(address, now, sig, callback) {
   var loginRequest = {
-    timeStamp : now,
+    timeStamp : now.getTime(),
     address: address,
     signature: sig
   };
