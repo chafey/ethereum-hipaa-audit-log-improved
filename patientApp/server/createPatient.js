@@ -16,8 +16,21 @@ export default function(patientRecord) {
       {
         _id : id
       },{
-        $set: {
-          transactionHash: transactionHash
+        $push: {
+          identifier: {
+          'use' : 'transactionHash',
+          'type' : {
+            text: 'Transaction Hash',
+            'coding' : [
+              {
+                'system' : 'https://solidity.readthedocs.io/en/develop/',
+                'code' : 'ETH'
+              }
+            ]
+          },
+          'value' : transactionHash,
+          'period' : {}
+          }
         }
       });
   });

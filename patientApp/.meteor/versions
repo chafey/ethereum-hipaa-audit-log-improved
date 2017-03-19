@@ -1,4 +1,6 @@
 accounts-base@1.2.14
+aldeed:collection2@2.5.0
+aldeed:simple-schema@1.3.3
 allow-deny@1.0.5
 autoupdate@1.2.11
 babel-compiler@6.13.0
@@ -13,6 +15,12 @@ caching-compiler@1.1.9
 caching-html-compiler@1.1.0
 callback-hook@1.0.10
 check@1.2.4
+clinical:base-model@1.3.5
+clinical:extended-api@2.2.4
+clinical:hl7-resource-bundle@1.3.10
+clinical:hl7-resource-datatypes@0.6.10
+clinical:hl7-resource-patient@1.7.0
+clinical:user-model@1.5.1
 coffeescript@1.0.17
 ddp@1.2.5
 ddp-client@1.2.9
@@ -40,8 +48,11 @@ launch-screen@1.0.12
 livedata@1.0.18
 localstorage@1.0.12
 logging@1.1.16
+matb33:collection-hooks@0.7.15
 meteor@1.6.0
 meteor-base@1.0.4
+meteor-platform@1.2.6
+meteorhacks:async@1.0.0
 minifier-css@1.2.15
 minifier-js@1.2.15
 minimongo@1.0.19
@@ -49,11 +60,13 @@ mobile-experience@1.0.4
 mobile-status-bar@1.0.13
 modules@0.7.7
 modules-runtime@0.7.8
+momentjs:moment@2.17.1
 mongo@1.1.14
 mongo-id@1.0.6
 npm-mongo@2.2.16_1
 observe-sequence@1.0.14
 ordered-dict@1.0.9
+prime8consulting:meteor-oauth2-server@0.0.3
 promise@0.8.8
 random@1.0.10
 rate-limit@1.0.6
@@ -63,7 +76,10 @@ reload@1.1.11
 retry@1.0.9
 routepolicy@1.0.12
 service-configuration@1.0.11
+session@1.1.7
 shell-server@0.2.1
+simple:json-routes@2.1.0
+socialize:server-time@0.1.2
 spacebars@1.0.13
 spacebars-compiler@1.1.0
 standard-minifier-css@1.3.2
@@ -72,6 +88,7 @@ templating@1.3.0
 templating-compiler@1.3.0
 templating-runtime@1.3.0
 templating-tools@1.1.0
+tmeasday:publish-with-relations@0.2.0
 tracker@1.1.1
 twbs:bootstrap@3.3.6
 ui@1.0.12

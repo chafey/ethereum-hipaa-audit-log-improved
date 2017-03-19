@@ -38,9 +38,11 @@ localhost 8545 network
 
 Start the meteor application:
 
-> cd patientApp
-
-> meteor
+```bash
+cd patientApp  
+meteor npm install  
+meteor  
+```
 
 Open your web browser to localhost:3000
 

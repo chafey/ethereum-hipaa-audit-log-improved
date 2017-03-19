@@ -1,1 +1,1 @@
-Patients = new Mongo.Collection('Patients');
+// Patients = new Mongo.Collection('Patients');
