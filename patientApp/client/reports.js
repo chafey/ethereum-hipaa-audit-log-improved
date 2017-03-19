@@ -1,6 +1,13 @@
 AuditEvents = new Mongo.Collection(null);
 
 Template.reports.helpers({
+  getPatientName: function(){
+    if(this.name && this.name[0] && this.name[0].text){
+      return this.name[0].text;
+    } else {
+      return '';
+    }
+  },
   users() {
     return Meteor.users.find();
   },
@@ -8,6 +15,7 @@ Template.reports.helpers({
     return Patients.find();
   },
   auditEvents() {
+    console.log('AuditEvents', AuditEvents.find().fetch());
     return AuditEvents.find();
   }
 })
@@ -30,7 +38,12 @@ Template.reports.events({
           //var userName = user ? user.lastName + ', ' + user.firstName : userAddress;
           var patient = Patients.findOne({'contractAddress' : result.address});
           //console.log(patient);
-          var patientName = patient ? patient.name : result.address;
+          var patientName = '';
+          if(patient && patient.name && patient.name[0] && patient.name[0].text){
+            patientName = patient.name[0].text;
+          } else {
+            patientName = result.address;
+          }
           AuditEvents.insert({
             date: new Date(result.timestamp),
             user: result.userName,

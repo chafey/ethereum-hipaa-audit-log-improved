@@ -5,8 +5,8 @@
       <label for="selectPatient">Patient</label>
       <select id="selectPatient" class="form-control">
         <option value=''>All</option>
-        {{#each patient in patients}}
-          <option value={{patient.contractAddress}}>{{patient.name}}</option>
+        {{#each patients}}
+          <option value={{contractAddress}}>{{getPatientName}}</option>
         {{/each}}
       </select>
     </div>
