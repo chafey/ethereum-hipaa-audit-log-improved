@@ -1,27 +1,29 @@
 <template name="viewReport">
   {{#ensureLoggedInAndRegistered}}
-  <div class="jumbotron">
-    <h1>View Report</h1>
-    <form>
-      <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" value="{{name}}" name="name" class="form-control" id="name" >
+    {{#with patient}}
+      <div class="jumbotron">
+        <h2>View Report</h2>
+        <form>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" value="{{getName}}" name="name" class="form-control" id="name" >
+          </div>
+          <div class="form-group">
+            <label for="mrn">MRN</label>
+            <input type="text" value="{{getMrn}}" name="mrn" class="form-control" id="mrn" >
+          </div>
+          <div class="form-group">
+            <label for="dob">DOB</label>
+            <input type="text" value="{{getDateOfBirth}}" name="dob" class="form-control" id="dob" >
+          </div>
+          <div class="form-group">
+            <label for="report">Report</label>
+            <textarea type="text" rows='10' value="{{getReport}}" name="report" class="form-control" id="report"></textarea>
+          </div>
+          <button type="button" id='close' class="btn btn btn-lg">Cancel</button>
+      </form>
+        <p></p>
       </div>
-      <div class="form-group">
-        <label for="mrn">MRN</label>
-        <input type="text" value="{{mrn}}" name="mrn" class="form-control" id="mrn" >
-      </div>
-      <div class="form-group">
-        <label for="dob">DOB</label>
-        <input type="text" value="{{dob}}" name="dob" class="form-control" id="dob" >
-      </div>
-      <div class="form-group">
-        <label for="report">Report</label>
-        <textarea type="text" rows='10' value="{{report}}" name="report" class="form-control" id="report"></textarea>
-      </div>
-      <button type="button" id='close' class="btn btn btn-lg">Cancel</button>
-  </form>
-    <p></p>
-  </div>
+    {{/with}}
   {{/ensureLoggedInAndRegistered}}
 </template>

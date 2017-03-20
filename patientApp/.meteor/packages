@@ -24,3 +24,5 @@ kadira:flow-router
 kadira:blaze-layout
 zimme:active-route
 erasaur:meteor-lodash
+
+clinical:hl7-resource-patient
