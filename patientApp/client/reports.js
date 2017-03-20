@@ -23,6 +23,7 @@ Template.reports.events({
       if(results) {
         results.reverse(); // reverse order of array so newest events are showed first
         results.forEach(function(result) {
+          console.log(result);
           var userAddress =  '0x' + result.topics[1].substr(26);
           //console.log('userAddress', userAddress);
           //var user = Meteor.users.findOne({'services.ethereum.address' :userAddress});

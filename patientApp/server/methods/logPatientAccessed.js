@@ -19,7 +19,10 @@ Meteor.methods({
       var user = Meteor.users.findOne({_id: this.userId});
       var addr = user.services.ethereum.address;
       console.log(addr);
-      patient.logAccess(patientRecord.contractAddress, addr);
+      var tx = patient.logAccess(patientRecord.contractAddress, addr);
+      tx.then(function(txHash) {
+        console.log('txHash', txHash);
+      });
       return "success";
     } else {
       throw new Meteor.Error("invalidPatient", "Invalid patient id.");
