@@ -2,8 +2,8 @@
 
 Prototype implementation of a HIPAA audit log using ethereum blockchain
 
+------------------  
 Concept
--------
 
 A HIPAA audit log keeps track of which users access which patients at what time.  
 Implementing this functionality using blockchain is interesting because:
@@ -19,8 +19,9 @@ Implementing this functionality using blockchain is interesting because:
 This prototype uses ethereum for the blockchain implementation and has a
 smart contract that contains an audit log entry (see contracts/Patient.sol).  
 
+------------------  
 Pre-requisites
---------------
+------------------  
 
 1) Setup a private ethereum network from here: https://github.com/chafey/ethereum-private-network
 
@@ -29,7 +30,7 @@ Pre-requisites
 3) Meteor
 
 How to run
-----------
+------------------  
 
 1) Make sure your ethereum private test network is running.  
 
@@ -74,3 +75,11 @@ Click "Reports" in the navbar.  You will see the report screen.
 
 Click "Search".  The report should show the audit event created when you clicked
 john doe.  The audit events are discovered using an ethereum filter.
+
+
+------------------  
+How to run  
+
+
+
+
