@@ -19,9 +19,8 @@ Implementing this functionality using blockchain is interesting because:
 This prototype uses ethereum for the blockchain implementation and has a
 smart contract that contains an audit log entry (see contracts/Patient.sol).  
 
-------------------  
 Pre-requisites
-------------------  
+--------------
 
 1) Setup a private ethereum network from here: https://github.com/chafey/ethereum-private-network
 
@@ -30,7 +29,8 @@ Pre-requisites
 3) Meteor
 
 How to run
-------------------  
+--------------
+
 
 1) Make sure your ethereum private test network is running.  
 
@@ -77,9 +77,42 @@ Click "Search".  The report should show the audit event created when you clicked
 john doe.  The audit events are discovered using an ethereum filter.
 
 
-------------------  
-This is a test   
+FHIR Conformance  
+----------
+
+This demo supports the storage of Patient records according to the [FHIR Patient 1.6.0](http://hl7.org/fhir/2016Sep/index.html) resource schema.  
+
+Because the FHIR standard also specifies the support of REST APIs, these Patients are available at the following endpoints.
+
+```
+GET    /fhir-1.6.0/Patient/:id    
+GET    /fhir-1.6.0/Patient/:id/_history  
+PUT    /fhir-1.6.0/Patient/:id  
+GET    /fhir-1.6.0/Patient  
+POST   /fhir-1.6.0/Patient/:param  
+POST   /fhir-1.6.0/Patient  
+DELETE /fhir-1.6.0/Patient/:id
+```
+
+However, because these 
+
+```
+# start the meteor application with OAuth disabled  
+NOAUTH=true INITIALIZE=true meteor  
+
+# perform an open query of the Patients collection 
+curl http://localhost:3000/fhir-1.6.0/Patient
+```
 
 
+Please see the [clinical:hl7-resource-patient](https://github.com/clinical-meteor/hl7-resource-patient) package for more implementation details.  
 
+
+FHIR Utilities  
+----------
+
+We recommend the following utitilies for inspecting the Mongo database, and querying the app via REST calls.  
+
+[Robomongo](https://robomongo.org/) - Mongo database management  
+[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)  
 
