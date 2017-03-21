@@ -25,4 +25,6 @@ kadira:blaze-layout
 zimme:active-route
 erasaur:meteor-lodash
 
+matb33:collection-hooks@0.8.4
+
 clinical:hl7-resource-patient

@@ -2,8 +2,8 @@
 
 Prototype implementation of a HIPAA audit log using ethereum blockchain
 
+------------------  
 Concept
--------
 
 A HIPAA audit log keeps track of which users access which patients at what time.  
 Implementing this functionality using blockchain is interesting because:
@@ -29,7 +29,8 @@ Pre-requisites
 3) Meteor
 
 How to run
-----------
+--------------
+
 
 1) Make sure your ethereum private test network is running.  
 
@@ -74,3 +75,44 @@ Click "Reports" in the navbar.  You will see the report screen.
 
 Click "Search".  The report should show the audit event created when you clicked
 john doe.  The audit events are discovered using an ethereum filter.
+
+
+FHIR Conformance  
+----------
+
+This demo supports the storage of Patient records according to the [FHIR Patient 1.6.0](http://hl7.org/fhir/2016Sep/index.html) resource schema.  
+
+Because the FHIR standard also specifies the support of REST APIs, these Patients are available at the following endpoints.
+
+```
+GET    /fhir-1.6.0/Patient/:id    
+GET    /fhir-1.6.0/Patient/:id/_history  
+PUT    /fhir-1.6.0/Patient/:id  
+GET    /fhir-1.6.0/Patient  
+POST   /fhir-1.6.0/Patient/:param  
+POST   /fhir-1.6.0/Patient  
+DELETE /fhir-1.6.0/Patient/:id
+```
+
+However, because these endpoints are protected by OAuth, they won't be accessible without an OAuth signin infrastructure, or disabling OAuth.  You can disable OAuth by using the `NOAUTH` environment variable.  So, to access the Patient resource, you'll need to run the following:  
+
+```
+# start the meteor application with OAuth disabled  
+NOAUTH=true meteor  
+
+# perform an open query of the Patients collection 
+curl http://localhost:3000/fhir-1.6.0/Patient
+```
+
+
+Please see the [clinical:hl7-resource-patient](https://github.com/clinical-meteor/hl7-resource-patient) package for more implementation details.  
+
+
+FHIR Utilities  
+----------
+
+We recommend the following utitilies for inspecting the Mongo database, and querying the app via REST calls.  
+
+[Robomongo](https://robomongo.org/) - Mongo database management  
+[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) - REST utitlity for the Chrome browser  
+

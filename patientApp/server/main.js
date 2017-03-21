@@ -1,5 +1,6 @@
-import { Meteor } from 'meteor/meteor';
 import './accounts-ethereum/register.js';
+
+import { Meteor } from 'meteor/meteor';
 import { Random } from 'meteor/random';
 import createPatient from './createPatient.js';
 import harvestTransactions from './harvestTransactions.js';
@@ -17,11 +18,58 @@ Meteor.publish("userData", function () {
       });
 });
 
-Meteor.publish('patients', function() {
-  if(this.userId) {
-    return Patients.find();
+Meteor.publish('patients', function(subscription) {
+  // if(this.userId) {
+  //   return Patients.find();
+  // }
+  if(subscription.status === 'active'){
+    if (this.userId) {
+      var criteriaObject = parseCriteriaString(subscription.criteria);
+      return Patients.find(criteriaObject.query);
+    } else {
+      return [];
+    }
+  } else {
+    return [];
   }
-})
+});
+parseCriteriaString = function(criteria){
+  var result = {
+    collection: '',
+    query: {}
+  };
+  
+  // is this a serialized complex object?
+  if (criteria && criteria.includes('?')){
+    // the base before the ? gets assigned to the collection
+    var criteriaArray = criteria.split('?');
+    result.query.collection = criteriaArray[0].replace('/', '').trim();
+    
+    // then we want to look at how many parameters were given
+    var paramsArray = [];
+    if(criteriaArray && criteriaArray[1]){
+      paramsArray = criteriaArray[1].split('&');
+
+      paramsArray.forEach(function(param){
+        // for each parameter, figure out the field name and the value
+        var fieldArray = param.split('=');
+
+        // some data types require subfields
+        if (fieldArray[0] === "identifier"){
+          result.query['identifier.value'] = fieldArray[1];
+        }
+    
+        // continue with the rest of the search specification
+        // https://www.hl7.org/fhir/search.html
+      });
+    }    
+  } 
+  
+  console.log('parseCriteriaString', result);
+  // deserialize string into mongo query
+  return result;
+}
+
 
 Meteor.startup(() => {
   harvestTransactions.start();
