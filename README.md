@@ -94,11 +94,11 @@ POST   /fhir-1.6.0/Patient
 DELETE /fhir-1.6.0/Patient/:id
 ```
 
-However, because these 
+However, because these endpoints are protected by OAuth, they won't be accessible without an OAuth signin infrastructure, or disabling OAuth.  You can disable OAuth by using the `NOAUTH` environment variable.  So, to access the Patient resource, you'll need to run the following:  
 
 ```
 # start the meteor application with OAuth disabled  
-NOAUTH=true INITIALIZE=true meteor  
+NOAUTH=true meteor  
 
 # perform an open query of the Patients collection 
 curl http://localhost:3000/fhir-1.6.0/Patient
@@ -114,5 +114,5 @@ FHIR Utilities
 We recommend the following utitilies for inspecting the Mongo database, and querying the app via REST calls.  
 
 [Robomongo](https://robomongo.org/) - Mongo database management  
-[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en)  
+[Postman](https://chrome.google.com/webstore/detail/postman/fhbjgbiflinjbdggehcddcbncdddomop?hl=en) - REST utitlity for the Chrome browser  
 
