@@ -19,7 +19,7 @@ Tracker.autorun(function () {
     Meteor.subscribe("userData");
 
     // Meteor.subscribe('patients');
-    var subscription = {
+    var patientSubscription = {
       // criteria: "/Patient?identifier=http://acme.org/patient/123",
       criteria: "/Patient",
       status: 'active',
@@ -28,5 +28,5 @@ Tracker.autorun(function () {
         endpoint: Meteor.absoluteUrl()    
       }
     }
-    Meteor.subscribe("patients", subscription);
+    Meteor.subscribe("patients", patientSubscription);
 });
